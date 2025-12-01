@@ -1,0 +1,4 @@
+* {
+  box-sizing: border-box;
+  /*paddingやborderの設定を行っても、要素の大きさはwidthやheightで指定したサイズのまま変わらなくなる */
+}
