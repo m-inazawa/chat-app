@@ -41,6 +41,9 @@ dependencies {
 	// Spring Securityと、ThymeleafのHTMLテンプレートにてSpringSecurityの機能を使用するための依存関係お２つを記述する必要がある
   implementation 'org.springframework.boot:spring-boot-starter-security'
   implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+
+	// Validationの依存関係を記述
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 }
 
 tasks.named('test') {
