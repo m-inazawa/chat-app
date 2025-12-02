@@ -1,6 +1,6 @@
 package in.tech_camp.chat_app.form;
 
-import org.checkerframework.checker.units.qual.Length;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.BindingResult;
 
 import in.tech_camp.chat_app.validation.ValidationPriority1;
