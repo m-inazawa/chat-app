@@ -19,6 +19,6 @@ public class MessageController {
   public String showMessages(@AuthenticationPrincipal CustomUserDetail currentUser, Model model){
     UserEntity user = userRepository.findById(currentUser.getId());
     model.addAttribute("user", user);
-    return "messages/index";
+    return "/messages/index";
   }
 }
