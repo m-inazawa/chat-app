@@ -30,6 +30,16 @@
           <label class='chat-room-form__label' for='chat_room_チャットメンバー'>チャットメンバー</label>
         </div>
         <div class='chat-room-form__field--right'>
+          <select th:field="*{memberIds}">
+            <option value="">チャットするユーザーを選択してください</option>
+<!-- 選択肢のoption要素にth:valueを付与することで、選択したユーザーのidを送るようにする -->
+            <div th:each="user : ${users}">
+              <option th:value="${user.id}" th:text="${user.name}"></option>
+            </div>
+          </select>
+          <input type="hiddem" th:value="${#authentication?.principal.id}" th:name="memberIds" /> 
+<!-- type="hidden"となっているため画面上には表示されない -->
+<!-- th:name="memberIds"とすることで、select・option要素で送信する情報に、本input要素も追加で送信することができる -->
         </div>
       </div>
       <div class='chat-room-form__field'>
