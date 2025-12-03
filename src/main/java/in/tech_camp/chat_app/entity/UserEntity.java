@@ -11,4 +11,5 @@ public class UserEntity {
   private String email;
   private String password;
   private List<RoomUserEntity> roomUsers;
+  private List<UserEntity> messages;//UserEntity、RoomEntityから、関連するメッセージのリストを取得できるようにフィールドを定義
 }
