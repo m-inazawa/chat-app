@@ -34,5 +34,5 @@ public interface UserRepository {
   boolean existsByEmailExcludingCurrent(String email, Integer userId);
 
   @Select("SELECT * FROM users WHERE id <> #{excludedId}")
-  List<UserEntity> findALLExcept(Integer excludedId);
+  List<UserEntity> findAllExcept(Integer excludedId);
 }
