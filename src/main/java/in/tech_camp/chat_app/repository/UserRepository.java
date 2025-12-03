@@ -35,4 +35,5 @@ public interface UserRepository {
 
   @Select("SELECT * FROM users WHERE id <> #{excludedId}")
   List<UserEntity> findAllExcept(Integer excludedId);
+
 }
