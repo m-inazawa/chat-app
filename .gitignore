@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+src/main/resources/static/uploads/**
+###GitHubの管理対象から外すために、.gitignoreファイルの末尾に以下を追記している
