@@ -14,7 +14,7 @@ public class MessageForm {
 
   private MultipartFile image;
 
-  public void ValidateMessage(BindingResult result) {
+  public void validateMessage(BindingResult result) {
     if ((content == null || content.isEmpty()) && (image == null || image.isEmpty())) {
       result.rejectValue("content", "error.Message", "please enter either content or image");
     }
