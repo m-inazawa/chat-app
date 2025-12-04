@@ -72,7 +72,7 @@ public class MessageFormUnitTest {
       MockMultipartFile emptyFile = new MockMultipartFile("image", "empty.jpg", "image/jpeg", new byte[0]);
       messageForm.setImage(emptyFile);
       messageForm.validateMessage(bindingResult);
-      verify(bindingResult).rejectValue("Content", "error.Message", "Please enter either content or image");
+      verify(bindingResult).rejectValue("content", "error.Message", "please enter either content or image");
     }
 
     @Test
@@ -80,7 +80,7 @@ public class MessageFormUnitTest {
       messageForm.setContent("");
       messageForm.setImage(null);
       messageForm.validateMessage(bindingResult);
-      verify(bindingResult).rejectValue("Content", "error.Message","Please enter either content or image");
+      verify(bindingResult).rejectValue("content", "error.Message", "please enter either content or image");
     }
 
     @Test
@@ -89,7 +89,7 @@ public class MessageFormUnitTest {
       MockMultipartFile emptyFile = new MockMultipartFile("image", "empty.jpg", "image/jpeg", new byte[0]);
       messageForm.setImage(emptyFile);
       messageForm.validateMessage(bindingResult);
-      verify(bindingResult).rejectValue("Content","error.Message","Please enter either content or image");
+      verify(bindingResult).rejectValue("content", "error.Message", "please enter either content or image");
     }
 
     @Test
@@ -97,7 +97,7 @@ public class MessageFormUnitTest {
       messageForm.setContent(null);
       messageForm.setImage(null);
       messageForm.validateMessage(bindingResult);
-      verify(bindingResult).rejectValue("Content","error.Message","Please enter either content or image");
+      verify(bindingResult).rejectValue("content", "error.Message", "please enter either content or image");
     }
   }
 }
