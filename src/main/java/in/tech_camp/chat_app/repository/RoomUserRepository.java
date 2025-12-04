@@ -13,7 +13,7 @@ import in.tech_camp.chat_app.entity.RoomUserEntity;
 
 @Mapper
 public interface RoomUserRepository {
-  @Insert("INSERT INTO room?users(user_id, room_id) VALUES(#{user.id) #{room.id})")
+  @Insert("INSERT INTO room_users(user_id, room_id) VALUES(#{user.id}, #{room.id})")
   @Options(useGeneratedKeys = true, keyProperty = "id")
   void insert(RoomUserEntity userRoomEntity); 
 
