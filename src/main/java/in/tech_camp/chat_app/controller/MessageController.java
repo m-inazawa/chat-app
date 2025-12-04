@@ -68,7 +68,7 @@ public class MessageController {
 
   @PostMapping("/rooms/{roomId}/messages")
   public String saveMessage(@PathVariable("roomId") Integer roomId, @ModelAttribute("messageForm") MessageForm messageForm, BindingResult bindingResult, @AuthenticationPrincipal CustomUserDetail currentUser) {
-    messageForm.ValidateMessage(bindingResult);
+    messageForm.validateMessage(bindingResult);
     if (bindingResult.hasErrors()) {
       return "redirect:/rooms/" + roomId + "/messages";
     }
