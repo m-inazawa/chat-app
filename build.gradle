@@ -48,6 +48,18 @@ dependencies {
 
 	// Validationの依存関係を記述
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+// 以下の９つがテストに必要な依存関係
+	testImplementation 'org.springframework.security:spring-security-test'
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'com.h2database:h2'
+	implementation 'org.yaml:snakeyaml:1.29'
+	implementation 'com.github.javafaker:javafaker:1.0.2'
+// testImplementation 'org.springframework.boot:spring-boot-starter-test'
+// testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:*.*.*'
+// testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
 }
 
 tasks.named('test') {
