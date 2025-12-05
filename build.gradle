@@ -60,6 +60,9 @@ dependencies {
 // testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:*.*.*'
 // testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
+// 画像がチャットルームに表示されているかを確認するためにJSoupを使用する
+	testImplementation 'org.jsoup:jsoup:1.15.3'
+
 }
 
 tasks.named('test') {
