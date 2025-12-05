@@ -4,14 +4,23 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockHttpSession;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import in.tech_camp.chat_app.ChatAppApplication;
+import in.tech_camp.chat_app.entity.UserEntity;
+import in.tech_camp.chat_app.factories.UserFormFactory;
+import in.tech_camp.chat_app.form.UserForm;
+import in.tech_camp.chat_app.service.UserService;
 
 @ActiveProfiles("test")
 @SpringBootTest(classes = ChatAppApplication.class)
@@ -21,11 +30,11 @@ public class UserIntegrationTest {
   private MockMvc mockMvc;
 
   @Autowired
-  private UserService userServisce;
+  private UserService userService;
 
   @Test
   public void ログインしていない状態でトップページにアクセスした場合サインインページに移動する() throws Exception {
-    mocMvc.perform(get("/"))
+    mockMvc.perform(get("/"))
       .andExpect(status().isFound())
       .andExpect(redirectedUrl("http://localhost/users/logi"));
     // トップページに移動し、再度ログインページにリダイレクトされることを確認する
@@ -34,7 +43,7 @@ public class UserIntegrationTest {
   @Test
   public void ログインに成功しトップページに遷移する() throws Exception {
     // 予め、ユーザーをDBに保存する
-    UserForm userForm = UserFormfactory.createUser();
+    UserForm userForm = UserFormFactory.createUser();
     UserEntity userEntity = new UserEntity();
     userEntity.setEmail(userForm.getEmail());
     userEntity.setName(userForm.getName());

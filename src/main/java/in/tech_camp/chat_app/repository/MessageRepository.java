@@ -28,4 +28,9 @@ public interface MessageRepository {
 // MessageEntityのuserフィールドで、UserRepositoryのfindByIdを実行することで、投稿したユーザーのUserEntityを取得
   })
   List<MessageEntity> findByRoomId(Integer roomId);
+
+
+  @Select("SELECT COUNT(*) FROM messages")//テーブル内のメッセージの数を取得するメソッドです。レコードの総数が変化するかを確認するために使用する
+  int count();
+  
 }
